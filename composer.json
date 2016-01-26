@@ -1,0 +1,10 @@
+{
+    "name": "mbrevda/step-composer-install",
+    "authors": [
+        {
+            "name": "Moshe Brevda",
+            "email": "mbrevda@gmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,13 +1,11 @@
 #!/bin/bash
-#PS4='+($?) $BASH_SOURCE:$FUNCNAME:$LINENO:'
+PS4='+($?) $BASH_SOURCE:$FUNCNAME:$LINENO:'
+#set -x
 
-#test script to mimic fail/warning/info handlers for wercker locally
-
-export WERCKER_PHPCS_DIRECTORY="./src"
-
-. build-esen.sh
-
-. run.sh
+for i in tests/*; do
+    . build-esen.sh
+    source "$i"
+done
 
 RESULT=$?
 if [[ $RESULT -ne "0" ]]; then
