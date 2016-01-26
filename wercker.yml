@@ -1,0 +1,6 @@
+box: wercker/php
+build:
+    steps:
+        - script:
+            name: test step
+            code: bash test.sh

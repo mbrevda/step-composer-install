@@ -1,0 +1,7 @@
+name: composer-install
+version: 0.0.1
+description: Runs composer install after cleaning up and initializing cache
+keywords:
+  - php
+  - composer
+  - composer install
