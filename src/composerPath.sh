@@ -1,5 +1,6 @@
 #!/bin/bash
 # dont check case when comparing values
+_COMPOSER_DIR=${_COMPOSER_DIR-"/usr/local/bin"}
 shopt -s nocasematch
 
 # ensure composer exists or install it
@@ -17,8 +18,8 @@ then
 		fi
 	else
 		info "Installing composer..."
-		curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --quiet
-		COMPOSER_PATH=/usr/local/bin/composer
+		curl -sS https://getcomposer.org/installer | php -- --install-dir=$_COMPOSER_DIR --filename=composer --quiet
+		COMPOSER_PATH=$_COMPOSER_DIR/composer
 	fi
 fi
 if [ -n "$COMPOSER_PATH" ]; then

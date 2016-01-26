@@ -1,7 +1,9 @@
 #!/bin/bash
 PS4='+($?) $BASH_SOURCE:$FUNCNAME:$LINENO:'
 #set -x
+_COMPOSER_DIR=/usr/local/bin/composer
 if [[ $CI = "true" && -f /home/ubuntu/.phpenv/shims/composer ]]; then
+    _COMPOSER_DIR=/home/ubuntu/.phpenv/shims/
     rm /home/ubuntu/.phpenv/shims/composer
 fi
 
