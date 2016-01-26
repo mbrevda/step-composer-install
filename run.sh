@@ -7,9 +7,9 @@ else
    	fail "PHP not found!"
 fi
 
-source src/composerPath.sh
-source src/setCache.sh
-source src/cleanAssets.sh
-source src/installOpts.sh
-source runInstall.sh
-source src/summary.sh
+source ./src/composerPath.sh
+source ./src/setCache.sh
+source ./src/cleanAssets.sh
+source ./src/installOpts.sh
+source ./src/runInstall.sh
+source ./src/summary.sh
