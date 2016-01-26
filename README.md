@@ -5,15 +5,14 @@ Runs `composer install` with some nifty initializations. Best tested `composer i
 
 # Dependencies
 * PHP - This build-step depends on an installed php version, if it's missing, the buildstep will fail. Please either install php, or pick a box which has php already installed
-* Composer (options) - As composer is needed for this set to complete, the step
-will attempt to install it if nesesary
+* Composer (optional) - As composer is needed for this set to complete, the step
+will attempt to install it if necessary
 
 # Options
-
-* `directory` The directory(s)/file(s) to scan. _please add a pipeline variable which sets the path, or make it hardcoded in your wercker.yml_
-* `ignore` The directory(s)/file(s) to ignore.
-* `standard` The coding standard used to test against; defaults to PSR2.
-* `report` Sets the output display format. http://pear.php.net/manual/en/package.php.php-codesniffer.reporting.php
+* `path` (optional) The path to composer, if installed. If composer isn't found, it will be attempted to install to `/usr/local/bin/composer`
+* `opts` (optional) Install opts to be passed to composer. Defaults to `--no-interaction`
+* `clean` (optional) If we should attempt to remove composer.lock and vendor/ before installing. This is useful for docker builds where files are copied and symlinks get broken. Set to `false` to prevent
+* `cache` (options) Path to composer's cache dir. Defaults to `$WERCKER_CACHE_DIR/.composer/cache`. Set to `false` to disable
 
 # Example
 ```yml
@@ -23,10 +22,10 @@ build:
   # The steps that will be executed on build
   steps:
   - mbrevda/composer-install:
-        directory: $DIRECTORY
-        standard: PSR2
-        ignore: $IGNORE_DIRECTORY
-        report: full
+        path: /path/to/composer
+        opts: --some-opt --another-opts
+        clean: false
+        cache: /path/to/cache
 deploy:
   steps:
 
