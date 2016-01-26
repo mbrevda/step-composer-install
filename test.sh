@@ -1,16 +1,22 @@
 #!/bin/bash
 PS4='+($?) $BASH_SOURCE:$FUNCNAME:$LINENO:'
 #set -x
+. build-esen.sh
+
+function passTest() {
+    _message "\t✓ ${1}" $SUCCESS_COLOR
+}
+
+function failTest() {
+    _message "\t✗ ${1}" $ERROR_COLOR
+    exit 1
+}
+
+_message "Running tests..." $INFO_COLOR
 
 for i in tests/*; do
     . build-esen.sh
     source "$i"
 done
 
-RESULT=$?
-if [[ $RESULT -ne "0" ]]; then
-    echo "Test: FAIL -> $RESULT"
-    return 1 2>/dev/null || exit 1
-else
-	echo "done"
-fi
+_message "All tests completed successfully!" $SUCCESS_COLOR

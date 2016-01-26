@@ -6,15 +6,15 @@ function info() {
 
     . build-esen.sh # only intercept info() once
     if [ "${1}" = "Composer found at /usr/local/bin/composer" ]; then
-        success "${BASH_SOURCE[0]} completed succesfully"
+        passTest "${BASH_SOURCE[0]}"
     else
-        fail "${BASH_SOURCE[0]} failed (${1})"
+        failTest "${BASH_SOURCE[0]} - (${1})"
     fi
 }
 
 
 WERCKER_COMPOSER_INSTALL_CACHE='false'
 COMPOSER_TEST_PATH=echo
-. run.sh
+source src/composerPath.sh
 
 rm /usr/local/bin/composer
