@@ -1,7 +1,9 @@
 #!/bin/bash
 PS4='+($?) $BASH_SOURCE:$FUNCNAME:$LINENO:'
 #set -x
-. build-esen.sh
+if [[ $CI = "true" && -f /home/ubuntu/.phpenv/shims/composer ]]; then
+    rm /home/ubuntu/.phpenv/shims/composer
+fi
 
 function passTest() {
     _message "  ✓ ${1}" $SUCCESS_COLOR
@@ -12,10 +14,19 @@ function failTest() {
     exit 1
 }
 
+function reset() {
+    if [ -f init.sh ]; then
+        source init.sh
+    else
+        source build-esen.sh
+    fi
+}
+
+reset()
 _message "Running tests..." $INFO_COLOR
 
 for i in tests/*; do
-    . build-esen.sh
+    reset()
     source "$i"
 done
 
