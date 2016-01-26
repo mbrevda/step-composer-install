@@ -1,8 +1,7 @@
 #!/bin/bash
 set -x
 function info() {
-    echo '$_COMPOSER_DIR' $_COMPOSER_DIR
-    if [ "${1}" = "Composer found at $_COMPOSER_DIR/composer" ]; then
+    if [ "${1}" = "Composer found at $_COMPOSER_DIRcomposer" ]; then
         passTest "${BASH_SOURCE[0]}"
         reset # only intercept info() once
     else
