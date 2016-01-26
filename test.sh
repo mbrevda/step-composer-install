@@ -22,11 +22,12 @@ function reset() {
     fi
 }
 
-reset()
+reset
+
 _message "Running tests..." $INFO_COLOR
 
 for i in tests/*; do
-    reset()
+    reset
     source "$i"
 done
 
