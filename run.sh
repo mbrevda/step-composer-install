@@ -7,9 +7,11 @@ else
    	fail "PHP not found!"
 fi
 
-source ./src/composerPath.sh
-source ./src/setCache.sh
-source ./src/cleanAssets.sh
-source ./src/installOpts.sh
-source ./src/runInstall.sh
-source ./src/summary.sh
+PWD=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+source $PWD/src/composerPath.sh
+source $PWD/src/setCache.sh
+source $PWD/src/cleanAssets.sh
+source $PWD/src/installOpts.sh
+source $PWD/src/runInstall.sh
+source $PWD/src/summary.sh

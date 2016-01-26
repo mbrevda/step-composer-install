@@ -1,11 +1,12 @@
-# PHP CodeSniffer Wercker step
-Verifies all *.php files specified directory
+# Composer Install
+Runs `composer install` with some nifty initializations. Best tested `composer install` package on wercker!
 
-[![wercker status](https://app.wercker.com/status/85b2f64a4a96aa882c71cff384289677 "wercker status")](https://app.wercker.com/project/bykey/85b2f64a4a96aa882c71cff384289677)
+[![wercker status](https://app.wercker.com/status/c2307a090fc4187cd749b3fb1b54ad52/s "wercker status")](https://app.wercker.com/project/bykey/c2307a090fc4187cd749b3fb1b54ad52)
 
 # Dependencies
 * PHP - This build-step depends on an installed php version, if it's missing, the buildstep will fail. Please either install php, or pick a box which has php already installed
-* PHPCS - Information on installing phpcs is available at https://github.com/squizlabs/PHP_CodeSniffer#installation
+* Composer (options) - As composer is needed for this set to complete, the step
+will attempt to install it if nesesary
 
 # Options
 
@@ -21,7 +22,7 @@ box: wercker/php
 build:
   # The steps that will be executed on build
   steps:
-  - mbrevda/phpcs:
+  - mbrevda/composer-install:
         directory: $DIRECTORY
         standard: PSR2
         ignore: $IGNORE_DIRECTORY
