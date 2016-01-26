@@ -12,7 +12,7 @@ will attempt to install it if necessary
 * `path` (optional) The path to composer, if installed. If composer isn't found, it will be attempted to install to `/usr/local/bin/composer`
 * `opts` (optional) Install opts to be passed to composer. Defaults to `--no-interaction`
 * `clean` (optional) If we should attempt to remove composer.lock and vendor/ before installing. This is useful for docker builds where files are copied and symlinks get broken. Set to `false` to prevent
-* `cache` (options) Path to composer's cache dir. Defaults to `$WERCKER_CACHE_DIR/.composer/cache`. Set to `false` to disable
+* `cache` (optional) Path to composer's cache dir. Defaults to `$WERCKER_CACHE_DIR/.composer/cache`. Set to `false` to disable
 
 # Example
 ```yml
