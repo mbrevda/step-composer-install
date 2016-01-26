@@ -4,11 +4,11 @@ PS4='+($?) $BASH_SOURCE:$FUNCNAME:$LINENO:'
 . build-esen.sh
 
 function passTest() {
-    _message "\t✓ ${1}" $SUCCESS_COLOR
+    _message "  ✓ ${1}" $SUCCESS_COLOR
 }
 
 function failTest() {
-    _message "\t✗ ${1}" $ERROR_COLOR
+    _message "  ✗ ${1}" $ERROR_COLOR
     exit 1
 }
 
