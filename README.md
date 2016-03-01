@@ -32,5 +32,7 @@ deploy:
  ```
 
  # Changelog
+ 1.0.1
+  - bug fixes for defaulting clean to false
  1.0.0
   - default clean to true

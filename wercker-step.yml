@@ -1,5 +1,5 @@
 name: composer-install
-version: 1.0.0
+version: 1.0.1
 description: The best-tested composer install step on werkcer!
 keywords:
   - php

@@ -3,6 +3,9 @@
 unset WERCKER_COMPOSER_INSTALL_CLEAN
 touch composer.lock
 mkdir -p vendor
+function info() {
+    FOO="${1}"
+}
 source src/cleanAssets.sh
 
 if [[ ! -f composer.lock && ! -d vendor ]]; then

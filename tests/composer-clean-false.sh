@@ -3,11 +3,10 @@
 touch composer.lock
 mkdir -p vendor
 WERCKER_COMPOSER_INSTALL_CLEAN='false'
-source src/cleanAssets.sh
 
-if [[ -f composer.lock && -d vendor ]]; then
+function info() {
     rm composer.lock; rm -r vendor/
     failTest "${BASH_SOURCE[0]} ($@)"
-else
-    passTest "${BASH_SOURCE[0]}"
-fi
+}
+source src/cleanAssets.sh
+passTest "${BASH_SOURCE[0]}"
