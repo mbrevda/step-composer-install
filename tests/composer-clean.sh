@@ -6,7 +6,7 @@ mkdir -p vendor
 source src/cleanAssets.sh
 
 if [[ ! -f composer.lock && ! -d vendor ]]; then
-    passTest "${BASH_SOURCE[0]}"
-else
     failTest "${BASH_SOURCE[0]} ($@)"
+else
+    passTest "${BASH_SOURCE[0]}"
 fi

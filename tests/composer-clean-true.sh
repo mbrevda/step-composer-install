@@ -2,7 +2,7 @@
 
 touch composer.lock
 mkdir -p vendor
-WERCKER_COMPOSER_INSTALL_CLEAN='false'
+WERCKER_COMPOSER_INSTALL_CLEAN='true'
 source src/cleanAssets.sh
 
 if [[ -f composer.lock && -d vendor ]]; then
